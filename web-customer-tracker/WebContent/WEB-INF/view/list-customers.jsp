@@ -28,7 +28,7 @@
 		
 		<!-- adding button -->
 		<input value="Add New" type="button" 
-			onclick="window.location.href='showFormAdd'; return false;"
+			onclick="window.location.href='showFormForAdd'; return false;"
 			class="add-button"
 			/>
 		
@@ -44,8 +44,8 @@
 				<c:forEach var="tempCustomer" items="${customers}" >
 				
 				<tr>
-					<td>${tempCustomer.firstname}</td>
-					<td>${tempCustomer.lastname}</td>
+					<td>${tempCustomer.firstName}</td>
+					<td>${tempCustomer.lastName}</td>
 					<td>${tempCustomer.email}</td>
 				</tr>
 				

@@ -11,18 +11,26 @@ import com.luv2code.springdemo.entity.Customer;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-	
+
+	// need to inject customer dao
 	@Autowired
 	private CustomerDAO customerDAO;
-
+	
 	@Override
 	@Transactional
 	public List<Customer> getCustomers() {
-		
-		
 		return customerDAO.getCustomers();
-		
-		
 	}
 
+	@Override
+	@Transactional
+	public void saveCustomer(Customer theCustomer) {
+		System.out.println("In Service : saveCustomer");
+		customerDAO.saveCustomer(theCustomer);
+	}
 }
+
+
+
+
+

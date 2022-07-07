@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 import com.luv2code.springdemo.entity.Customer;
 import com.luv2code.springdemo.service.CustomerService;
@@ -15,24 +16,52 @@ import com.luv2code.springdemo.service.CustomerService;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
-	
+
+	// need to inject our customer service
 	@Autowired
 	private CustomerService customerService;
-
+	
 	@GetMapping("/list")
-	public String listCustomers(Model theModel)
-	{
-		//get customer from Service
-		List<Customer> theCustomer = customerService.getCustomers();
+	public String listCustomers(Model theModel) {
 		
-		//add the customers to model
-		theModel.addAttribute("customers",theCustomer);
+		// get customers from the service
+		List<Customer> theCustomers = customerService.getCustomers();
+				
+		// add the customers to the model
+		theModel.addAttribute("customers", theCustomers);
 		
 		return "list-customers";
 	}
 	
-	@GetMapping("/showFormAdd")
+	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
+		
+		// create model attribute to bind form data
+		Customer theCustomer = new Customer();
+		
+		theModel.addAttribute("customer", theCustomer);
+		
 		return "customer-form";
 	}
+	
+	@PostMapping("/saveCustomer")
+	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
+		
+		System.out.println("In Controller : saveCustomer");
+		// save the customer using our service
+		customerService.saveCustomer(theCustomer);
+		
+		
+		return "redirect:/customer/list";
+	}
 }
+
+
+
+
+
+
+
+
+
+
