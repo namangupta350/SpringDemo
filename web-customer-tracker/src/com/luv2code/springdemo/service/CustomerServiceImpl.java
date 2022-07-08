@@ -28,6 +28,13 @@ public class CustomerServiceImpl implements CustomerService {
 		System.out.println("In Service : saveCustomer");
 		customerDAO.saveCustomer(theCustomer);
 	}
+
+	@Override
+	public Customer getCustomer(int theId) {
+	
+		return customerDAO.getCustomer(theId);
+		
+	}
 }
 
 
