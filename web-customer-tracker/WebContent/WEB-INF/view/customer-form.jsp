@@ -1,36 +1,36 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>List Customers</title>
-
-<!-- reference our style sheet -->
+	<title>Save Customer</title>
 
 	<link type="text/css"
 		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css" />
-		  
+		  href="${pageContext.request.contextPath}/resources/css/style.css">
+
 	<link type="text/css"
 		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css" />	  
-
+		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 </head>
-<body>
 
+<body>
+	
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM- Customer Relationship Manager</h2>
+			<h2>CRM - Customer Relationship Manager</h2>
 		</div>
 	</div>
-	
+
 	<div id="container">
 		<h3>Save Customer</h3>
-		
+	
 		<form:form action="saveCustomer" modelAttribute="customer" method="POST">
-		
+
+			<!-- need to associate this data with customer id -->
+			<form:hidden path="id" />
+					
 			<table>
 				<tbody>
 					<tr>
@@ -59,22 +59,25 @@
 		
 		
 		</form:form>
-		
+	
 		<div style="clear; both;"></div>
-		<br>
-		<input value="Back to List" type="button" 
-			onclick="window.location.href='${pageContext.request.contextPath}/customer/list'; return false;"
-			class="add-button"
-			/>
-		<%-- 
-		<button>
-			<a href="${pageContext.request.contextPath}/customer/list">Back to List</a>
-		</button> --%>
-	
-	
 		
+		<p>
+			<a href="${pageContext.request.contextPath}/customer/list">Back to List</a>
+		</p>
+	
 	</div>
-	
-	
+
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+

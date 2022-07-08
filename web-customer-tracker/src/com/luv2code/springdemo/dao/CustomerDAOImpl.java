@@ -44,8 +44,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 		System.out.println("In CustomerDAO : saveCustomer");
 		
-		// save the customer ... finally LOL
-		currentSession.save(theCustomer);
+		// save or update the customer ... finally LOL
+		currentSession.saveOrUpdate(theCustomer);
 		
 	}
 
