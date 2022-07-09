@@ -27,11 +27,19 @@
 		
 		<div id="content">
 		
+		<!-- Adding home Button -->
+		
+		<input value="Home" type="button" 
+			onclick="window.location.href='list'; return false;"
+			class="add-button"
+			/>
+		
 		<!-- adding button -->
 		<input value="Add New" type="button" 
 			onclick="window.location.href='showFormForAdd'; return false;"
 			class="add-button"
 			/>
+		
 			
 			 <!--  add a search box -->
             <form:form action="search" method="GET">
