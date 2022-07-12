@@ -10,7 +10,9 @@ public class AccountDAO {
 		
 	System.out.println(getClass()+"Doing my db work");
 	
+	}
 	
-	
+	public void addNewAccount() {
+		System.out.println("in new account");
 	}
 }
