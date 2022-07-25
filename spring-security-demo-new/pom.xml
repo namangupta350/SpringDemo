@@ -12,12 +12,25 @@
 	<properties>
 		<springframework.version>5.0.2.RELEASE</springframework.version>
 		<springsecurity.version>5.0.0.RELEASE</springsecurity.version>
+		<spring.version>3.0.6.RELEASE</spring.version>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+	
+	
 
 	<dependencies>
+	
+	<!-- Spring mvc version -->
+	
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+	
 
 		<!-- Spring MVC support -->
 		<dependency>
@@ -25,6 +38,8 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		
+		
 
 		<!-- Spring Security -->
 		<!-- spring-security-web and spring-security-config -->
@@ -40,6 +55,20 @@
 		    <artifactId>spring-security-config</artifactId>
 		    <version>${springsecurity.version}</version>
 		</dependency>	
+		
+		<!-- Add Spring Security Taglibs support -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-taglibs</artifactId>
+		    <version>${springsecurity.version}</version>
+		</dependency>	
+		
+		<dependency>
+   		 <groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-taglibs</artifactId>
+   		 <version>3.1.4.RELEASE</version>
+			</dependency>
+		
 		
 		<!-- Servlet, JSP and JSTL support -->
 		<dependency>
